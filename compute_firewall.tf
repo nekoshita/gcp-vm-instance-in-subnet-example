@@ -13,7 +13,7 @@ resource "google_compute_firewall" "my_network" {
   # 対象のVMインスタンスのタグを指定する
   target_tags = ["bastion-tag"]
   # VMインスタンスへのSSH接続元IPを指定する
-  source_ranges = ["0.0.0.0/0"]
+  source_ranges = var.firewall_allow_ip_source_ranges
 
   # CloudLoggingにFlowLogログを出力したい場合は設定する
   log_config {

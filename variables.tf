@@ -17,3 +17,7 @@ variable "gcp_zones" {
 variable "gcp_project_id" {
   type = string
 }
+
+variable "firewall_allow_ip_source_ranges" {
+  type = list(string)
+}
