@@ -4,6 +4,7 @@ set -eu
 
 gcp_project_id=${1:?'set GCP project name as first argument'}
 gcs_buckect_name_for_tfstate=${2:?'set GCS Bucket name as second argument'}
+global_ip_address=${3:?'set your global IP address'}
 
 
 rm -rf .terraform
@@ -11,7 +12,9 @@ rm -rf .terraform
 terraform init -backend-config="bucket=${gcs_buckect_name_for_tfstate}"
 
 terraform refresh \
-  -var="gcp_project_id=${gcp_project_id}"
-
+  -var="gcp_project_id=${gcp_project_id}" \
+  -var="firewall_allow_ip_source_ranges=[\"${global_ip_address}/32\"]"
+  
 terraform apply -refresh=true \
-  -var="gcp_project_id=${gcp_project_id}"
+  -var="gcp_project_id=${gcp_project_id}" \
+  -var="firewall_allow_ip_source_ranges=[\"${global_ip_address}/32\"]"
