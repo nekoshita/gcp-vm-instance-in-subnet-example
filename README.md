@@ -14,12 +14,29 @@
 - `gcloud CLI`のインストール（VMインスタンスにSSH接続したい場合）
   - https://cloud.google.com/sdk/gcloud
 
+## グローバルIPアドレスの取得
+```
+$ curl httpbin.org/ip
+```
+というコマンドを実行し、グローバルIPアドレスを取得します
+たとえば以下のようなデータが出力されます
+```
+{
+  "origin": "123.123.123.123"
+}
+```
+グローバルIPアドレスを環境変数にセットします
+```
+$ export GLOBAL_IP_ADDRESS="123.123.123.123"
+```
+
+
 ## リソースの作成
 ```
 $ export GCP_PROJECT_ID="your-gcp-project-id"
 $ export GCS_BUCKET_NAME="your-gcs-bucket-name"
 
-$ bin/apply $GCP_PROJECT_ID $GCS_BUCKET_NAME
+$ bin/apply $GCP_PROJECT_ID $GCS_BUCKET_NAME $GLOBAL_IP_ADDRESS
 ```
 
 ## リソースの削除
@@ -27,7 +44,7 @@ $ bin/apply $GCP_PROJECT_ID $GCS_BUCKET_NAME
 $ export GCP_PROJECT_ID="your-gcp-project-id"
 $ export GCS_BUCKET_NAME="your-gcs-bucket-name"
 
-$ bin/destroy $GCP_PROJECT_ID $GCS_BUCKET_NAME
+$ bin/destroy $GCP_PROJECT_ID $GCS_BUCKET_NAME $GLOBAL_IP_ADDRESS
 ```
 
 ## VMインスタンスへのSSH接続
