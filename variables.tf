@@ -21,3 +21,7 @@ variable "gcp_project_id" {
 variable "firewall_allow_ip_source_ranges" {
   type = list(string)
 }
+
+variable "allowed_user_mail" {
+  type = string
+}
