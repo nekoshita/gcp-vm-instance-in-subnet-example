@@ -36,16 +36,18 @@ $ export GLOBAL_IP_ADDRESS="123.123.123.123"
 ```
 $ export GCP_PROJECT_ID="your-gcp-project-id"
 $ export GCS_BUCKET_NAME="your-gcs-bucket-name"
+$ export USER_MAIL="your-google-user-mail-to-allow-ssh-acccess@gmail.com"
 
-$ bin/apply $GCP_PROJECT_ID $GCS_BUCKET_NAME $GLOBAL_IP_ADDRESS
+$ bin/apply $GCP_PROJECT_ID $GCS_BUCKET_NAME $USER_MAIL $GLOBAL_IP_ADDRESS
 ```
 
 ## リソースの削除
 ```
 $ export GCP_PROJECT_ID="your-gcp-project-id"
 $ export GCS_BUCKET_NAME="your-gcs-bucket-name"
+$ export USER_MAIL="your-google-user-mail-to-allow-ssh-acccess@gmail.com"
 
-$ bin/destroy $GCP_PROJECT_ID $GCS_BUCKET_NAME $GLOBAL_IP_ADDRESS
+$ bin/destroy $GCP_PROJECT_ID $GCS_BUCKET_NAME $USER_MAIL $GLOBAL_IP_ADDRESS
 ```
 
 ## VMインスタンスへのSSH接続
