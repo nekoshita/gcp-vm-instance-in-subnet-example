@@ -1,9 +1,12 @@
-# gcp-vm-instance-in-subnet-example
+# VMインスタンスをサブネット内に作成し、Firewallで許可したIPからのみSSH接続する
 
 ## これは何？
 - GCPでVPCとsubnetを作成し、subnet内にVMインスタンスを起動します
 - VMインスタンスに外部IPアドレスを付与します
 - subnet内に起動したVMインスタンスにSSH接続します
+
+## 解説記事
+- https://zenn.dev/nekoshita/articles/b6eab08861920c
 
 ## セットアップ
 - `Terraform v0.14.5`のインストール
